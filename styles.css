@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px;
+}
+
+aside {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background-color: rgb(34, 139, 34);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+ul#films {
+    list-style: none;
+    padding: 0;
+}
+
+.film.item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: rgb(0, 100, 0);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.film.item:hover {
+    background-color: rgb(50, 205, 50);
+}
+
+.sold-out {
+    background-color: rgb(200, 0, 0) !important;
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    background-color: rgb(220, 20, 60);
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: rgb(178, 34, 34);
+}
+
+main {
+    flex: 2;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    margin-left: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#movie-details img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+button#buy-ticket {
+    background-color: rgb(34, 139, 34);
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button#buy-ticket:disabled {
+    background-color: rgb(169, 169, 169);
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+    }
+    main {
+        margin-left: 0;
+        width: 90%;
+    }
+    aside {
+        width: 90%;
+        max-width: none;
+    }
+}
