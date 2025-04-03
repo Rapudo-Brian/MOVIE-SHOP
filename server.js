@@ -1,9 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Serve static files (for CSS, JS, images, )
+app.use(express.static(path.join(__dirname, 'public'))); 
+
+// Serve the HTML file on the root route
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
 let films = [
     { id: "1", title: "Prison Break", runtime: "120", capacity: 50, showtime: "08:00PM", tickets_sold: 30, description: "A man plans his escape from prison to save his falsely accused brother.", poster: "Images/pb.jpg" },
