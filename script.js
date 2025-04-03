@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const buyTicketBtn = document.getElementById("buy-ticket");
 
     function loadMovies() {
-        fetch("http://localhost:3000/films")
+        fetch("https://movie-shop.onrender.com/films")
             .then(res => res.json())
             .then(movies => {
                 filmsList.innerHTML = "";
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function loadMovieDetails(id) {
-        fetch(`http://localhost:3000/films/${id}`)
+        fetch(`https://movie-shop.onrender.com/films/${id}`)
             .then(res => res.json())
             .then(movie => {
                 poster.src = movie.poster;
@@ -63,18 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buyTicket() {
         const movieId = buyTicketBtn.dataset.id;
-        fetch(`http://localhost:3000/films/${movieId}`)
+        fetch(`https://movie-shop.onrender.com/films/${movieId}`)
             .then(res => res.json())
             .then(movie => {
                 if (movie.capacity - movie.tickets_sold > 0) {
                     const updatedTickets = movie.tickets_sold + 1;
-                    fetch(`http://localhost:3000/films/${movieId}`, {
+                    fetch(`https://movie-shop.onrender.com/films/${movieId}`, {
                         method: "PATCH",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ tickets_sold: updatedTickets })
                     })
                     .then(() => {
-                        fetch("http://localhost:3000/tickets", {
+                        fetch("https://movie-shop.onrender.com/tickets", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ film_id: movieId, number_of_tickets: 1 })
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function deleteMovie(id, listItem) {
-        fetch(`http://localhost:3000/films/${id}`, {
+        fetch(`https://movie-shop.onrender.com/films/${id}`, {
             method: "DELETE"
         })
         .then(() => listItem.remove());
