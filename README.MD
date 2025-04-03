@@ -1,5 +1,7 @@
 Movie Shop
 
+You can access the live version of the app [https://movie-shop.onrender.com](https://movie-shop.onrender.com).
+
 A web application for managing and purchasing movie tickets. This app allows users to view movie details, purchase tickets, and interact with the movie listings.
 
 Features
